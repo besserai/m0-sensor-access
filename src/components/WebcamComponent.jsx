@@ -5,20 +5,26 @@ import './WebcamComponent.css'; // Import the CSS file
 
 const WebcamComponent = () => {
     const webcamRef = useRef(null);
+    // const [allCameras, setAllCameras] = useState(null);
     const [cameraDeviceId, setCameraDeviceId] = useState(null);
 
     useEffect(() => {
         const findCamera = async () => {
             const devices = await navigator.mediaDevices.enumerateDevices();
             const allCameras = devices.filter((device) => device.kind === 'videoinput');
+            // setAllCameras(allCameras);
             const rearCamera = devices.find((device) => device.kind === 'videoinput'
                 && /(back|environment|rear)/.test(device.label));
 
+            console.log(allCameras.length);
             if (rearCamera) {
                 setCameraDeviceId(rearCamera.deviceId);
-            } else if (allCameras.length > 0) {
+            } else if (allCameras.length = 1) {
                 // If rear camera not found, use the first available camera (usually front-facing)
                 setCameraDeviceId(allCameras[0]);
+            } else if (allCameras.length > 1) {
+                // If rear camera not found, use the first available camera (usually front-facing)
+                setCameraDeviceId(allCameras[1]);
             }
 
 
@@ -34,6 +40,7 @@ const WebcamComponent = () => {
             console.log(imageSrc);
         }
     };
+
 
     return (
         <div className="webcam-container">
