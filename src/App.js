@@ -2,29 +2,28 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import WebcamComponent from './components/WebcamComponent';
+import GpsComponent from './components/GpsComponent';
+import AccelerometerComponent from './components/AccelerometerComponent';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
 
+        <div className="sensor">
+          Accelerometer access:
+          <AccelerometerComponent />
+        </div>
 
-        </a>
+        <div className="sensor">
+          GPS access:
+          <GpsComponent />
+        </div>
+        <div className="sensor">
+          Camera access:
+          <WebcamComponent />
+        </div>
 
-        <input accept="image/*" id="icon-button-file" type="file" capture="environment" />
-
-        <WebcamComponent />
       </header>
     </div>
   );

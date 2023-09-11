@@ -1,0 +1,16 @@
+/* Add this CSS to your stylesheet */
+.webcam-container {
+    width: 100%;
+    /* Adjust to your desired width */
+    height: auto;
+    /* Maintain aspect ratio */
+}
+
+.webcam {
+    width: 100%;
+    /* Adjust to your desired width */
+    height: auto;
+    /* Maintain aspect ratio */
+    max-width: 100%;
+    /* Ensure it doesn't exceed its parent's width */
+}
