@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import WebcamComponent from './components/WebcamComponent';
 
 function App() {
   return (
@@ -17,7 +18,13 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
+
+
         </a>
+
+        <input accept="image/*" id="icon-button-file" type="file" capture="environment" />
+
+        <WebcamComponent />
       </header>
     </div>
   );
