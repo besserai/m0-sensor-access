@@ -23,7 +23,7 @@ const WebcamComponent = () => {
                 // If rear camera not found, use the first available camera (usually front-facing)
                 setCameraDeviceId(allCameras[0]);
             } else if (allCameras.length > 1) {
-                // If rear camera not found, use the first available camera (usually front-facing)
+                // If rear camera not found, but more than one present, use the second available camera (usually backwards-facing)
                 setCameraDeviceId(allCameras[1]);
             }
 
