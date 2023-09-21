@@ -7,12 +7,14 @@ const WebcamComponent = () => {
     const webcamRef = useRef(null);
     // const [allCameras, setAllCameras] = useState(null);
     const [cameraDeviceId, setCameraDeviceId] = useState(null);
+    const [allCamerasInfos, setAllCamerasInfos] = useState(null);
 
     useEffect(() => {
         const findCamera = async () => {
             const devices = await navigator.mediaDevices.enumerateDevices();
+            console.dir(navigator.mediaDevices.enumerateDevices());
             const allCameras = devices.filter((device) => device.kind === 'videoinput');
-            // setAllCameras(allCameras);
+            setAllCamerasInfos(allCameras);
             const rearCamera = devices.find((device) => device.kind === 'videoinput'
                 && /(back|environment|rear)/.test(device.label));
 
@@ -41,6 +43,12 @@ const WebcamComponent = () => {
         }
     };
 
+    const printCamInfos = () => {
+        const cameraInfoField = document.getElementById("camera-info-field");
+        cameraInfoField.innerText = allCamerasInfos;
+        console.dir(allCamerasInfos);
+    }
+
 
     return (
         <div className="webcam-container">
@@ -57,7 +65,9 @@ const WebcamComponent = () => {
                 <p>No camera found.</p>
             )}
             <button onClick={captureImage}>Capture</button>
-        </div>
+            <button onClick={printCamInfos}>Get Camera Infos</button>
+            <p id="camera-info-field" style={{ "font-size": 15 }}></p>
+        </div >
     );
 };
 

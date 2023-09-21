@@ -4,6 +4,7 @@ import './App.css';
 import WebcamComponent from './components/WebcamComponent';
 import GpsComponent from './components/GpsComponent';
 import AccelerometerComponent from './components/AccelerometerComponent';
+import Compass from './components/Compass';
 
 function App() {
   return (
@@ -15,9 +16,17 @@ function App() {
           <AccelerometerComponent />
         </div>
 
+
+        <div className="sensor">
+          Compass access:
+          <Compass />
+        </div>
+
+
+
         <div className="sensor">
           GPS access:
-          <GpsComponent />
+          {/* <GpsComponent /> */}
         </div>
         <div className="sensor">
           Camera access:
