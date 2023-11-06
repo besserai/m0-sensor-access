@@ -1,13 +1,13 @@
 /* Add this CSS to your stylesheet */
 .webcam-container {
-    width: 100%;
+    width: auto;
     /* Adjust to your desired width */
-    height: auto;
+    height: 30%;
     /* Maintain aspect ratio */
 }
 
 .webcam {
-    width: 100%;
+    width: auto;
     /* Adjust to your desired width */
     height: auto;
     /* Maintain aspect ratio */

@@ -16,18 +16,16 @@ function App() {
           <AccelerometerComponent />
         </div>
 
-
         <div className="sensor">
           Compass access:
           <Compass />
         </div>
 
-
-
         <div className="sensor">
           GPS access:
-          {/* <GpsComponent /> */}
+          <GpsComponent />
         </div>
+
         <div className="sensor">
           Camera access:
           <WebcamComponent />
