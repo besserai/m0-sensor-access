@@ -13,17 +13,17 @@ function App() {
 
         <div className="sensor">
           Accelerometer access:
-          <AccelerometerComponent />
+          {/* <AccelerometerComponent /> */}
         </div>
 
         <div className="sensor">
           Compass access:
-          <Compass />
+          {/* <Compass /> */}
         </div>
 
         <div className="sensor">
           GPS access:
-          <GpsComponent />
+          {/* <GpsComponent /> */}
         </div>
 
         <div className="sensor">

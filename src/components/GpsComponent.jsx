@@ -5,10 +5,15 @@ var SunCalc = require('suncalc');
 
 const GpsComponent = () => {
     const [location, setLocation] = useState(null);
+    const [logmsg, setLogmsg] = useState("logmsg");
 
 
     useEffect(() => {
         // Check if geolocation is available in the browser
+
+    }, []);
+
+    const requestLocationPermission = () => {
         if ('geolocation' in navigator) {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
@@ -17,17 +22,24 @@ const GpsComponent = () => {
                 },
                 (error) => {
                     console.error('Error accessing geolocation:', error.message);
+                    setLogmsg(error.code);
+                    if (error.code === 1) {
+                        alert("User denied the request for Geolocation.");
+                    }
                     setLocation(null);
                 }
             );
+            setLogmsg("geolocation available");
         } else {
             console.error('Geolocation not available in this browser.');
             setLocation(null);
+            setLogmsg("geolocation NOT available");
         }
-    }, []);
+    }
 
     return (
         <div>
+            <button onClick={requestLocationPermission}>Request Location Permission</button>
             {location ? (
                 <div>
                     <h2>Your Current Location</h2>
@@ -42,6 +54,10 @@ const GpsComponent = () => {
             ) : (
                 <p>Unable to access geolocation.</p>
             )}
+
+            log:
+            <p>{logmsg}</p>
+
         </div>
     );
 };
