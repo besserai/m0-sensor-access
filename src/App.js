@@ -13,7 +13,7 @@ function App() {
 
         <div className="sensor">
           Accelerometer access:
-          {/* <AccelerometerComponent /> */}
+          <AccelerometerComponent />
         </div>
 
         <div className="sensor">
@@ -23,7 +23,7 @@ function App() {
 
         <div className="sensor">
           GPS access:
-          {/* <GpsComponent /> */}
+          <GpsComponent />
         </div>
 
         <div className="sensor">
